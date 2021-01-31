@@ -11,5 +11,9 @@ One question we hope to answer whether employers in the tech industry are respon
 
 Finding Data
 
+https://www.kaggle.com/rtatman/silicon-valley-diversity-data?select=Tech_sector_diversity_demographics_2016.csv
+This data was collected from companies' federally required Equal Employment Opportunity Commission reports. The dataset is compiling diversity data for large Silicon Valley companies, or in other words, tech companies with locations in the San Francisco Bay area (that have at least 100 employees). The dataset contains 177 rows, as it analyses 177 different companies. It also contains five main columns/features: company, race, gender, year, and job category. One question that could be answered from this dataset is how does the diversity of some of the country's biggest tech companies compare to that of the rest of the country? A question that this dataset could contribute to in terms of mental health in the tech industry is does diversity in the workplace have any correlation with mental health? 
+
+
 https://www.kaggle.com/mathurinache/world-happiness-report?select=2017.csv
 This data set uses information collected from the Gallop World Survey which measures 155 state's "bliss levels."  The overall happiness score is based on factors like the countries GDP, life expectancy, family size, and overall well being. Each of the 10 columns contains these different factors, while each of the 155 columns represent the statistics for a unique country. This data set is relevant as it can help determine if economic factors like GDP impact the mental health of a country's population. If there is a correlation, it might show that people who are higher up within companies, meaning those who receive higher pay, are less likely to suffer from mental health issues.
