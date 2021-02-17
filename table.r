@@ -1,7 +1,7 @@
 library(tidyverse)
 library(dplyr)
 library(stringr)
-table_of_data <- `survey.(1)` %>% 
+table_of_data <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASMBIFOVTDWFI54FR2XRHWTAGWL6G") %>% 
   select(-Timestamp) %>% 
   drop_na(state) %>% 
   select(-Country) %>% 
@@ -35,5 +35,4 @@ table_of_data <- `survey.(1)` %>%
   select(-mental_health_interview) %>% 
   select(-phys_health_interview) %>% 
   select(-mental_vs_physical) %>% 
-  select(-obs_consequence) %>% 
-  View()
+  select(-obs_consequence)
