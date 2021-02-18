@@ -7,7 +7,6 @@ num_respondents <- tech_data %>%
   nrow()
 
 # Find the average age of the respondents.
-
 avg_age <- tech_data %>%
   filter(14 < Age & Age < 118) %>%
   summarize(Age = mean(Age, na.rm = T)) %>%
