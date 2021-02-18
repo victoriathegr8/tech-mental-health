@@ -3,15 +3,22 @@ title: "Mental Health in the Tech Industry Report"
 output: html_document
 ---
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=TRUE)
-source("table.r")
+knitr::opts_chunk$set(echo=FALSE)
 ```
 
 The domain we are aiming to explore with this project is the intersection between mental health and the tech industry. Mental health awareness and advocacy has only risen over the past few years, making this a relevant topic. Constraining our demographic to the tech industry allowed us to obtain more specific data, plus it felt more relevant in an informatics course. However, this project could also give us insight into a broader domain—how our professional lives impact our personal ones. Our main data set will be a 2014 survey done by the Open Sourcing Mental Illness, a nonprofit aimed at educating and providing resources to support mental health, about mental health in the tech workplace. We found this data set to have a large enough reach and enough respondents to be able to draw conclusions from it. A secondary data set we will be utilizing will be diversity data collected from large Silicon Valley companies in 2016. It will be used to better understand additional factors (specifically race and gender) that impact mental health in the tech industry. Although Silicon Valley is only a specific section within the tech industry, companies that are headquartered there do contain many of the elements that we typically associate with large tech corporations, such as certain workplace cultures. So, we’ve deemed it appropriate to integrate the data from both data sets in order to draw additional conclusions.
 
 After summarizing the data with R, we were able to find several relevant values that will provide us with insight about relationships between variables in the data set. We found that the average age of the respondents was 32 years old. The number of respondents from each company size are fairly even, which is positive because now we know that the data doesn't favor feedback from smaller verses larger companies. Most of the respondents work in small companies of between 6 and 100 employees, but the next largest group of respondents work at companies with more than 1,000 employees. We also found that the number of respondents from each state has a large range from 1 to 138 respondents, with California at the highest number of the respondents in the U.S. Hopefully this range does not skew the data as studies show that people who live in certain states suffer more from mental health conditions. Most importantly, we found that out of the 1259 respondents, 465 of them said that their mental health sometimes interferes with their work. When the respondents were asked how difficult it is to take medical leave for mental health, 98 said very difficult. Moving forward, we will work on visualizing some parallels between the variables within the data set.
 
-```{r echo = F, results = 'asis'}
+```{r, message = FALSE}
+source("graph1_histogram.R")
+age_vs_leave
+```
+
+This chart shows the relationship between the difficulty of obtaining medical leave from work and age. It shows that a majority of respondents, regardless of age, said it was somewhat easy to obtain. However, for those that responded that it was very difficult to obtain, there is a more even distribution of ages.
+
+```{r message = FALSE, results = 'asis'}
+source("table.r")
 library(knitr)
 kable(summary_table, col.names = c("State", "Company Employee Total", "Proportion with Family History of Mental Illness", "Proportion with Previous MH Treatment", "Proportion with Mental Health Benefits Provided at Work", "Proportion Comfortable Discussing MH with Coworkers", "Proportion Comfortable Discussing MH with Supervisors"))
 kable(table_of_data, col.names = c("Age", "State", "Self-Employed", "Tech Company", "Family History of Mental Illness", "Previous Treatment for Mental Illness", "Mental Illness Effects Work", "Company Employee Total", "Majority of Work Remote", "Mental Health Benefits Provided", "Aware of Mental Health Care Provided", "Easy to Take Leave", "Comfortable Discussing MH With Coworkers", "Comfortable Discussing MH with Supervisors"))
