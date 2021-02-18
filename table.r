@@ -46,7 +46,7 @@ summary_table <- table_of_data %>%
                                            comfortable_discussing_mental_health_with_coworkers == "Some of them", 1, 0)) %>%
   mutate(comfortable_supervisor = if_else(comfortable_discussing_mental_health_with_supervisor == "Yes" | 
                                             comfortable_discussing_mental_health_with_supervisor == "Some of them", 1, 0)) %>%
-  group_by(state, company_employee_total) %>%
+  group_by(company_employee_total) %>%
   summarise(family_history_of_mental_illness_prop = round(sum(has_history / n()), digits = 3),
             previous_treatment_for_mental_illness_prop = round(sum(got_treatment) / n(), digits = 3),
             mental_health_benefits_provided_prop = round(sum(benefits / n()), digits = 3), 
