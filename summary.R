@@ -2,7 +2,6 @@ tech_data <- read.csv("survey.csv")
 library(tidyverse)
 
 # How many individuals responded to this survey?
-
 num_respondents <- tech_data %>%
   nrow()
 
