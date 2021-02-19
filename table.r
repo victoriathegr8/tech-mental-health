@@ -38,6 +38,8 @@ table_of_data <- read.csv("https://raw.githubusercontent.com/info201a-w21/projec
   select(-obs_consequence) %>%
   arrange(state, by_group = T)
 
+order <- c("1-5", "6-25", "26-100", "100-500", "500-1000", "More than 1000")
+
 summary_table <- table_of_data %>%
   mutate(has_history = if_else(family_history_of_mental_illness == "Yes", 1, 0)) %>%
   mutate(got_treatment = if_else(previous_treatment_for_mental_illness == "Yes", 1, 0)) %>%
@@ -51,4 +53,5 @@ summary_table <- table_of_data %>%
             previous_treatment_for_mental_illness_prop = round(sum(got_treatment) / n(), digits = 3),
             mental_health_benefits_provided_prop = round(sum(benefits / n()), digits = 3), 
             comfortable_discussing_mental_health_with_coworkers_prop = round(sum(comfortable_coworkers / n()), digits = 3),
-            comfortable_discussing_mental_health_with_supervisor_prop = round(sum(comfortable_supervisor / n()), digits = 3))
+            comfortable_discussing_mental_health_with_supervisor_prop = round(sum(comfortable_supervisor / n()), digits = 3)) %>%
+  slice(match(order, company_employee_total))
