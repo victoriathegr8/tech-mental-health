@@ -41,4 +41,9 @@ table_of_data <- read.csv("https://raw.githubusercontent.com/info201a-w21/projec
 
 number_of_employees <- as.data.frame(table(table_of_data$company_employee_total)) 
 number_of_employees$Var1 <- factor(number_of_employees$Var1, levels = c("1-5", "6-25", "26-100", "100-500", "500-1000", "More than 1000"))
-ggplot(number_of_employees, aes(Var1, Freq)) + geom_bar(stat = "identity") + ggtitle("Respondent Total For Company Size") + xlab("Company Size") + ylab("Total Respondents")
+bar_plot <- ggplot(number_of_employees, aes(Var1, Freq)) + 
+  geom_bar(stat = "identity") + 
+  labs(title = "Respondent Total For Company Size",
+       x = "Company size",
+       y = "Total Respondents"
+  )

@@ -11,7 +11,7 @@ The domain we are aiming to explore with this project is the intersection betwee
 After summarizing the data with R, we were able to find several relevant values that will provide us with insight about relationships between variables in the data set. We found that the average age of the respondents was 32 years old. The number of respondents from each company size are fairly even, which is positive because now we know that the data doesn't favor feedback from smaller verses larger companies. Most of the respondents work in small companies of between 6-25 employees, but the next largest group of respondents work at companies with more than 1,000 employees. We also found that the number of respondents from each state has a large range from 1 to ____ respondents, with California at the highest number of the respondents in the U.S. Hopefully this range does not skew the data as studies show that people who live in certain states suffer more from mental health conditions. Most importantly, we found that out of the __ respondents, ___ of them said that their mental health sometimes interferes with their work. When the respondents were asked how difficult it is to take medical leave for mental health, ___ said very difficult. Moving forward, we will work on visualizing some parallels between the variables within the data set.
 
 ```{r message=FALSE}
-source("chart2.R")
+source("graph2.R")
 age_chart
 ```
 
@@ -29,7 +29,7 @@ source("graph3_bar.R")
 bar_plot
 ```
 
-This simple bar graph visualizes the company size of those responding to this survey (using the filtered data containing only US respondents). The graph shows that the company size of respondents is relatively broad. The graph also shows that largest group of respondents is for that of large companies, with over a thousand employees. Unfortunately, there is a relatively small pool of respondents for companies with a total of 500-1000 employees, with only 40 respondents for thsi group.
+This simple bar graph visualizes the company size of those responding to this survey (using the filtered data containing only US respondents). The graph shows that the company size of respondents is relatively broad. The graph also shows that largest group of respondents is for that of large companies, with over a thousand employees. Unfortunately, there is a relatively small pool of respondents for companies with a total of 500-1000 employees, with only 40 respondents for this group.
 
 ```{r message = FALSE, results = 'asis'}
 source("table.r")
