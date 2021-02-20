@@ -22,7 +22,7 @@ source("graph3_bar.R")
 bar_plot
 ```
 
-This simple bar graph visualizes the company size of those responding to this survey. The graph shows that the respondents work at a broad range of company sizes. We can see that largest group of respondents is for that of large companies, with over a thousand employees. Unfortunately, there is a relatively small pool of respondents for companies with a total of 500-1000 employees, with only 60 respondents for this group.
+This simple bar graph visualizes the company size of those responding to this survey. We can see that largest group of respondents is for that of large companies, with over a thousand employees. Unfortunately, there is a relatively small pool of respondents for companies with a total of 500-1000 employees, with only 60 respondents for this group. The graph shows that the respondents work at a broad range of company sizes which helps us know that mental health is not only a concern at large tech corporations.
 
 ```{r message=FALSE}
 source("graph1_histogram.R")
