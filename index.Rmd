@@ -28,6 +28,13 @@ age_vs_leave
 
 This chart shows the relationship between the difficulty of obtaining medical leave from work and age. It shows that a majority of respondents, regardless of age, said it was somewhat easy to obtain. However, for those that responded that it was very difficult to obtain, there is a more even distribution of ages.
 
+```{r message=FALSE}
+source("graph3_bar.R")
+bar_plot
+```
+
+This simple bar graph visualizes the company size of those responding to this survey (using the filtered data containing only US respondents). The graph shows that the company size of respondents is relatively broad. The graph also shows that largest group of respondents is for that of large companies, with over a thousand employees. Unfortunately, there is a relatively small pool of respondents for companies with a total of 500-1000 employees, with only 40 respondents for thsi group.
+
 ```{r message = FALSE, results = 'asis'}
 source("table.r")
 library(knitr)
