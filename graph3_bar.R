@@ -7,7 +7,7 @@ number_of_employees <- tech_data %>%
   group_by(no_employees) %>%
   summarize(num_of_employees = length(no_employees))
 
-bar_plot <- ggplot(data = number_of_employees) + 
+bar_plot <- ggplot(data = number_of_employees) +
   geom_col(mapping = aes(x = no_employees, y = num_of_employees)) +
   labs(title = "Size of Company at which the Respondents Work",
        x = "Company size",
