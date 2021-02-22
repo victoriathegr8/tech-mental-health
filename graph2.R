@@ -10,5 +10,9 @@ age_chart <- ggplot(data = age_parameters) +
   geom_boxplot(mapping = aes(x = Age)) +
   labs(
     title = "Age Range of Survey Participants",
-    x = "Age of Respondents"
+    x = "Age of Respondents",
+    y = "Survey Participants"
+  ) +
+  theme(
+    axis.text.y = element_blank()
   )
