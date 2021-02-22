@@ -14,6 +14,6 @@ bar_plot <- ggplot(data = number_of_employees) +
   geom_col(mapping = aes(x = no_employees, y = num_of_employees)) +
   scale_x_discrete(limits = order) +
   labs(title = "Size of Company at which the Respondents Work",
-       x = "Company size",
+       x = "Size of Company",
        y = "Total Respondents"
   )
