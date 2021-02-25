@@ -1,6 +1,6 @@
 library(tidyverse)
 
-tech_data <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASMBIFLEYLWXVAMZZG7G6DTAG7G7U")
+tech_data <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASMBIFL6ND43XEW5XCUKBPDAIESBS")
 
 age_parameters <- tech_data %>%
   filter(14 < Age & Age < 118) %>%

@@ -1,7 +1,7 @@
 library(tidyverse)
 library(ggplot2)
 
-tech_data <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASMBIFLEYLWXVAMZZG7G6DTAG7G7U")
+tech_data <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASMBIFL6ND43XEW5XCUKBPDAIESBS")
 
 order <- c("1-5", "6-25", "26-100", "100-500", "500-1000", "More than 1000")
 
