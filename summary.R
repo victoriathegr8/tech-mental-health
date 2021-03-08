@@ -1,4 +1,4 @@
-tech_data <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASMBIFLEYLWXVAMZZG7G6DTAG7G7U")
+tech_data <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASMBIFK6ZVKUWQ6L32NP6A3AIEOQS")
 library(tidyverse)
 
 # How many individuals responded to this survey?
@@ -16,7 +16,6 @@ avg_age <- tech_data %>%
 state_respondents <- tech_data %>%
   group_by(state) %>%
   summarize(num_of_state = length(state))
-View()
 
 most_state_respondents <- tech_data %>%
   group_by(state) %>%
