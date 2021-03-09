@@ -51,8 +51,28 @@ props_page <- tabPanel(
   )
 )
 
+mental_health <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASLIDHBRHUKBMN2U5RGAKW3AJF3YK")
+
+avg_age_page <- tabPanel(
+  titlePanel("Comparing Age and Responses to Mental Health"),
+  sidebarLayout(
+    sidebarPanel(
+      x_var <- selectInput(
+      inputId = "x_var",
+      label = "Choose an X Variable",
+      choices = c("Mental Health Intereference with Work" = "work_interfere",
+                  "Number of Employees" = "no_employees",
+                  "Difficulty Taking Medical Leave" = "leave")
+      )
+  ),
+    mainPanel(
+      plotOutput(outputId = "plot")
+    )
+  )
+)
 ui <- navbarPage(
   "Mental Health in the Tech Industry",
   intro_page,
-  props_page
+  props_page,
+  avg_age_page
 )
