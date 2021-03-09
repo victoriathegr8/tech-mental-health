@@ -41,8 +41,14 @@ server <- function(input, output) {
       geom_histogram(mapping = aes(x = Age)) +
       facet_wrap(~mental_health[[input$x_var]]) +
       labs(
-        title = paste("Age of Respondents and", input$x_var),
+        title = 
+          if (input$x_var == "work_interfere")
+           title <- "Mental Health Interference with Work and Age"
+          else if (input$x_var == "no_employees")
+            title <- "Company Size and Age"
+          else if (input$x_var == "leave")
+            title <- "Difficulty Taking Medical Leave and Age",
         y = "Number of Respondents"
-    )
+      )
   })
 }
