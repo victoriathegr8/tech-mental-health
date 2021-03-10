@@ -58,3 +58,21 @@ summary_table <- table_of_data %>%
     comfortable_discussing_mental_health_with_supervisor_prop = round(sum(comfortable_supervisor / n()), digits = 3)
   ) %>%
   slice(match(order, company_employee_total))
+
+summary_of_data <- table_of_data %>%
+  filter(easy_to_take_leave != "Don't know") %>%
+  filter(mental_health_benefits_provided != "Don't know") %>%
+  drop_na(mental_illness_effects_work) %>% 
+  mutate(leave_provided = if_else(easy_to_take_leave == "Very easy" |
+                                    easy_to_take_leave == "Somewhat easy", 1, 0)) %>%
+  mutate(benefits_provided = if_else(mental_health_benefits_provided == "Yes", 1, 0)) %>%
+  mutate(comfortable = if_else(comfortable_discussing_mental_health_with_coworkers == "Yes" |
+                                 comfortable_discussing_mental_health_with_coworkers == "Some of them", 1, 0)) %>%
+  mutate(effects_work = if_else(mental_illness_effects_work == "Often" |
+                                  mental_illness_effects_work == "Sometimes", 1, 0)) %>%
+  group_by(tech_company) %>%
+  summarise(
+    leave_provided_prop = round(sum(leave_provided / n()), digits = 3),
+    benefits_provided_prop = round(sum(benefits_provided / n()), digits = 3),
+    comfortable_prop = round(sum(comfortable / n()), digits = 3),
+    effects_work_prop = round(sum(effects_work / n()), digits = 3))

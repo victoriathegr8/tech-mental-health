@@ -70,15 +70,34 @@ age_page <- tabPanel(
   sidebarLayout(
     sidebarPanel(
       x_var <- selectInput(
-      inputId = "x_var",
-      label = "Choose an X Variable",
-      choices = c("Mental Health Intereference with Work" = "work_interfere",
-                  "Number of Employees" = "no_employees",
-                  "Difficulty Taking Medical Leave" = "leave")
+        inputId = "x_var",
+        label = "Choose an X Variable",
+        choices = c("Mental Health Intereference with Work" = "work_interfere",
+                    "Number of Employees" = "no_employees",
+                    "Difficulty Taking Medical Leave" = "leave")
       )
-  ),
+    ),
     mainPanel(
       plotlyOutput(outputId = "plot")
+    )
+  )
+)
+
+comp_page <- tabPanel(
+  titlePanel("Comparing Type of Company and Responses to Mental Health"),
+  sidebarLayout(
+    sidebarPanel(
+      x_var <- selectInput(
+        inputId = "axis",
+        label = "Choose a Proportion",
+        choices = c("Easy Taking Medical Leave" = "leave_provided_prop",
+                    "Provided Mental Health Benefits" = "benefits_provided_prop",
+                    "Comfortable Discussing Mental Health With Coworkers" = "comfortable_prop",
+                    "Mental Health Effects Work" = "effects_work_prop")
+      )
+    ),
+    mainPanel(
+      plotlyOutput(outputId = "comp_plot")
     )
   )
 )
@@ -91,5 +110,6 @@ ui <- navbarPage(
   intro_page,
   props_page,
   age_page,
+  comp_page,
   conclusion_page
 )
