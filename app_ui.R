@@ -7,7 +7,7 @@ intro_page <- tabPanel(
   tags$h1("Introduction"),
   sidebarLayout(
     mainPanel(
-      p("The domain we are aiming to explore with this project is
+      tags$p("The domain we are aiming to explore with this project is
         the intersection between mental health and the tech industry.
         Mental health awareness and advocacy has only risen over the
         past few years, making this a relevant topic. Constraining
@@ -21,7 +21,12 @@ intro_page <- tabPanel(
         health in the tech workplace. We found this data set to have a
         large enough reach and enough respondents to be able to draw
         conclusions from it."),
-      tags$img(src = "working.jpg")
+      br(),
+      tags$img(src = "working.jpg"),
+      tags$strong("For more information about Seattle mental health resources,
+                  click"),
+      tags$a(href="https://www.namiwa.org/index.php/resources",
+             "here.")
     ),
     sidebarPanel(
       tags$h2("By utilizing this data set, we hope to find answers to the
@@ -34,7 +39,7 @@ intro_page <- tabPanel(
         tags$li("How does age impact one's mental health knowledge? Is there
                 any difference in mental health stigma between age groups?")
       ),
-    )
+    ),
   )
 )
 
