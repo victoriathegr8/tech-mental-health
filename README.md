@@ -1,4 +1,4 @@
-# Final Project
+# Mental Health in the Tech Industry
 
 ## Domain of interest
 
@@ -20,3 +20,7 @@ One question we hope to answer whether employers in the tech industry are respon
 2. [This data set](https://www.kaggle.com/mathurinache/world-happiness-report?select=2017.csv) uses information collected from the Gallop World Survey which measures 155 state's "bliss levels."  The overall happiness score is based on factors like the countries GDP, life expectancy, family size, and overall well being. Each of the 10 columns contains these different factors, while each of the 155 rows represent the statistics for a unique country. This data set is relevant as it can help determine if economic factors like GDP impact the mental health of a country's population. If there is a correlation, it might show that people who are higher up within companies, meaning those who receive higher pay, are less likely to suffer from mental health issues.
 
 3. [This](https://www.kaggle.com/anth7310/mental-health-in-the-tech-industry) uses survey data from 2014, 2016, 2017, 2018, and 2019, answering varying questions related to mental health. The questions begin with history of mental illness in the family or individual, and follows with relation to the workplace. There is a total of 118 columns (stated as rows since each question is given an integer ID), with 4,218 separate user IDs (rows of responses). There is also inclusion of questions framed to determine the attitude of employers in regards to mental health, and with ties to company size, there should be correlation shown between workplace culture and results in the mental health of the employees. If correlation is shown, the data may provide insight into the effect of social stigma surrounding mental health, especially in professional environments.
+
+## Analysis
+
+[GitHub Page With Charts and Findings](https://info201a-w21.github.io/project-victoriathegr8/)

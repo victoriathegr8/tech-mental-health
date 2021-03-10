@@ -3,32 +3,44 @@ library(ggplot2)
 
 intro_page <- tabPanel(
   titlePanel("Introduction"),
-  p("The domain we are aiming to explore with this project is
-    the intersection between mental health and the tech industry.
-    Mental health awareness and advocacy has only risen over the
-    past few years, making this a relevant topic. Constraining
-    our demographic to the tech industry allowed us to obtain more
-    specific data, plus it felt more relevant in an informatics
-    course. However, this project could also give us insight into
-    a broader domain-how our professional lives impact our personal
-    ones. The data set we will be analyzing is a 2014 survey done by
-    Open Sourcing Mental Illness, a nonprofit aimed at educating and
-    providing resources to support mental health, about mental
-    health in the tech workplace. We found this data set to have a
-    large enough reach and enough respondents to be able to draw
-    conclusions from it."),
-  br(),
-  p("By utilizing this data set, we hope to find answers to the
-    following questions:"),
-  tags$ul(
-    tags$li("What kind of workplace culture around mental health does
-            the tech industry offer?"),
-    tags$li("How does company size within the tech industry affect
-            mental health resource access and usage?"),
-    tags$li("How does age impact one's mental health knowledge? Is there
-            any difference in mental health stigma between age groups?"),
-  ),
-  tags$img(src = "working.jpg")
+  includeCSS("styles.css"),
+  tags$h1("Introduction"),
+  sidebarLayout(
+    mainPanel(
+      tags$p("The domain we are aiming to explore with this project is
+        the intersection between mental health and the tech industry.
+        Mental health awareness and advocacy has only risen over the
+        past few years, making this a relevant topic. Constraining
+        our demographic to the tech industry allowed us to obtain more
+        specific data, plus it felt more relevant in an informatics
+        course. However, this project could also give us insight into
+        a broader domain-how our professional lives impact our personal
+        ones. The data set we will be analyzing is a 2014 survey done by
+        Open Sourcing Mental Illness, a nonprofit aimed at educating and
+        providing resources to support mental health, about mental
+        health in the tech workplace. We found this data set to have a
+        large enough reach and enough respondents to be able to draw
+        conclusions from it."),
+      br(),
+      tags$img(src = "working.jpg"),
+      tags$strong("For more information about Seattle mental health resources,
+                  click"),
+      tags$a(href="https://www.namiwa.org/index.php/resources",
+             "here.")
+    ),
+    sidebarPanel(
+      tags$h2("By utilizing this data set, we hope to find answers to the
+        following questions:"),
+      tags$ul(
+        tags$li("What kind of workplace culture around mental health does
+                the tech industry offer?"),
+        tags$li("How does company size within the tech industry affect
+                mental health resource access and usage?"),
+        tags$li("How does age impact one's mental health knowledge? Is there
+                any difference in mental health stigma between age groups?")
+      ),
+    ),
+  )
 )
 
 props_page <- tabPanel(
@@ -66,13 +78,18 @@ age_page <- tabPanel(
       )
   ),
     mainPanel(
-      plotOutput(outputId = "plot")
+      plotlyOutput(outputId = "plot")
     )
   )
+)
+conclusion_page <- tabPanel(
+  titlePanel("Conclusion"),
+  p("test"),
 )
 ui <- navbarPage(
   "Mental Health in the Tech Industry",
   intro_page,
   props_page,
-  age_page
+  age_page,
+  conclusion_page
 )

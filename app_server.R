@@ -31,13 +31,13 @@ server <- function(input, output) {
     ggplotly(props_chart)
   })
 
-  output$plot <- renderPlot({
+  output$plot <- renderPlotly({
     mental_health <- mental_health %>%
       filter(Age > 14 & Age < 118) %>%
       filter(leave != "Don't know") %>%
       group_by(input$x_var)
     
-    ggplot(data = mental_health) +
+    age_plot <- ggplot(data = mental_health) +
       geom_histogram(mapping = aes(x = Age)) +
       facet_wrap(~mental_health[[input$x_var]]) +
       labs(
@@ -48,7 +48,7 @@ server <- function(input, output) {
             title <- "Company Size and Age"
           else if (input$x_var == "leave")
             title <- "Difficulty Taking Medical Leave and Age",
-        y = "Number of Respondents"
-      )
+        y = "Number of Respondents")
+    ggplotly(age_plot)
   })
 }
