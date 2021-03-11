@@ -32,12 +32,12 @@ intro_page <- tabPanel(
       tags$h2("By utilizing this data set, we hope to find answers to the
         following questions:"),
       tags$ul(
-        tags$li("What kind of workplace culture around mental health does
-                the tech industry offer?"),
         tags$li("How does company size within the tech industry affect
                 mental health resource access and usage?"),
-        tags$li("How does age impact one's mental health knowledge? Is there
-                any difference in mental health stigma between age groups?")
+        tags$li("Are there any correlations between age and mental health 
+                statistics?"),
+        tags$li("How does the workplace culture around mental health in
+                the tech industry differ from other industries?")
       ),
     ),
   )
