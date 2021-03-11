@@ -122,6 +122,23 @@ conclusion_page <- tabPanel(
   titlePanel(p("Conclusion")),
   tags$h1("Findings"),
   br(),
+  p("After evaluating the impact of the size of a tech company that one 
+    works for on mental health, we can see a few trends. A trend that was 
+    expected was a positive relationship between company size and 
+    the probability that the company would offer mental health benefits. 
+    However, this directly contrasts with many of the other trends 
+    demonstrated in regards to company size. Respondents working at 
+    larger companies were less comfortable discussing mental health with 
+    both their coworkers and supervisors. This was shown in the 19.2% 
+    difference in the proportion of respondents working at 1000+ 
+    employee companies that were comfortable discussing their mental 
+    with their coworkers and those working at 1-5 employee companies. 
+    They were also less likely to have received mental health treatment 
+    before. This shows that despite companies offering mental health 
+    benefits, and thus acknowledging that mental health struggles are 
+    normal and worthy of being treated, workplace culture doesn't 
+    necessarily follow suit with that acknowledgement."),
+  br(),
   p("In examining the relationships between age and the mental health
   of those who work in the tech industry, we were able to determine
   that younger individuals are more likely to be distracted from work
