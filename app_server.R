@@ -2,6 +2,7 @@ library(shiny)
 library(ggplot2)
 library(plotly)
 library(lintr)
+library(reshape2)
 source("table.r")
 
 mental_health <- read.csv("data/mental_health_in_tech/survey.csv")
@@ -44,17 +45,19 @@ colnames(summary_of_data) <- c(
 
 server <- function(input, output) {
   output$props_plot <- renderPlotly({
-    props_chart <- ggplot(data = summary_table) +
-      geom_col(mapping = aes(
-        x = `Company Size`,
-        y = summary_table[[input$prop]]),
-        fill = "darkslateblue") +
+    summary_table2 <- melt(summary_table, id.vars = 'Company Size') %>%
+      filter(variable %in% input$prop)
+    props_chart <- ggplot(summary_table2, aes(x = `Company Size`,
+                                             y = value,
+                                             fill = variable)) +
+      geom_bar(position = "dodge", stat = "identity") +
       ylim(0, 1) +
       scale_x_discrete(limits = order) +
       labs(
         title = "Company Size Effects on Mental Health Statistics",
         x = "Company Size",
-        y = paste("Proportion of Respondents That\n", input$prop)
+        y = "Proportion",
+        fill = "Proportion of Respondents That:"
       )
     ggplotly(props_chart)
   })
@@ -83,7 +86,8 @@ server <- function(input, output) {
             "Difficulty Taking Medical Leave and Age"
           },
         y = "Number of Respondents"
-      )
+      ) +
+      scale_x_continuous(limits = input$age_range)
     ggplotly(age_plot)
   })
 
@@ -98,16 +102,16 @@ server <- function(input, output) {
         title =
           if (input$axis == "leave_provided_prop") {
             "Company Type Effect on Proportion With Ability to Take
-              Leave Due to Mental Health"
+            Leave Due to Mental Health"
           } else if (input$axis == "comfortable_prop") {
             "Company Type Effect on Proportion Comfortable Discussing
-              Mental Health With Coworkers"
+            Mental Health With Coworkers"
           } else if (input$axis == "benefits_provided_prop") {
             "Company Type Effect on Proportion With
-              Mental Health Benefits Provided"
+            Mental Health Benefits Provided"
           } else if (input$axis == "effects_work_prop") {
             "Company Type Effect on Proportion With Mental Health
-              Inhibiting Work"
+            Inhibiting Work"
           },
         x = "Working For Company in Tech Industry",
         y = "Proportion of Respondents"

@@ -54,16 +54,16 @@ props_page <- tabPanel(
   titlePanel(p("Company Size Effects")),
   sidebarLayout(
     sidebarPanel(
-      selectInput(
+      checkboxGroupInput(
         inputId = "prop",
         choices = c(
           "Have Family History of Mental Illness",
           "Have Received Mental Illness Treatment",
           "Receive Mental Health Benefits from Work",
           "Are Comfortable Discussing\nMental Health with Coworkers",
-          "Are Comfortable Discussing\nMental Health with Supervisor"
-        ),
-        label = p("Proportion of Respondents That:")
+          "Are Comfortable Discussing\nMental Health with Supervisor"),
+        label = p("Proportion of Respondents That:"),
+        selected = "Have Family History of Mental Illness"
       )
     ),
     mainPanel(
@@ -84,6 +84,11 @@ age_page <- tabPanel(
           "Number of Employees" = "no_employees",
           "Difficulty Taking Medical Leave" = "leave"
         )
+      ),
+      sliderInput(
+        inputId = "age_range",
+        label = p("Age Range"),
+        min = 14, max = 118, value = c(14, 118)
       )
     ),
     mainPanel(

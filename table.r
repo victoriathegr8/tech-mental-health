@@ -2,7 +2,7 @@ library(tidyverse)
 library(dplyr)
 library(stringr)
 library(lintr)
-table_of_data <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASMBIFJGA4OFO24ISG7FK73AJ7RLY") %>%
+table_of_data <- read.csv("data/mental_health_in_tech/survey.csv") %>%
   select(-Timestamp) %>%
   drop_na(state) %>%
   select(-Country) %>%
