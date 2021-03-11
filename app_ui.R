@@ -1,12 +1,14 @@
 library(shiny)
 library(ggplot2)
+library(shinythemes)
 
-mental_health <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASLIDHBRHUKBMN2U5RGAKW3AJF3YK")
+mental_health <- read.csv("data/mental_health_in_tech/survey.csv")
 
 intro_page <- tabPanel(
-  titlePanel("Introduction"),
+  titlePanel(p("Introduction")),
   includeCSS("styles.css"),
-  tags$h1("Introduction"),
+  tags$h1("About the Topic"),
+  br(),
   sidebarLayout(
     mainPanel(
       tags$p("The domain we are aiming to explore with this project is
@@ -25,6 +27,7 @@ intro_page <- tabPanel(
         conclusions from it."),
       br(),
       tags$img(src = "working.jpg"),
+      br(),
       tags$strong("For more information about Seattle mental health resources,
                   click"),
       tags$a(
@@ -48,7 +51,7 @@ intro_page <- tabPanel(
 )
 
 props_page <- tabPanel(
-  titlePanel("Statistics based on Company Size"),
+  titlePanel(p("Company Size Effects")),
   sidebarLayout(
     sidebarPanel(
       selectInput(
@@ -58,10 +61,9 @@ props_page <- tabPanel(
           "Have Received Mental Illness Treatment",
           "Receive Mental Health Benefits from Work",
           "Are Comfortable Discussing\nMental Health with Coworkers",
-          "Are Comfortable Discussing\nMental Health with
-                    Supervisor"
+          "Are Comfortable Discussing\nMental Health with Supervisor"
         ),
-        label = "Proportion of Respondents That:"
+        label = p("Proportion of Respondents That:")
       )
     ),
     mainPanel(
@@ -71,12 +73,12 @@ props_page <- tabPanel(
 )
 
 age_page <- tabPanel(
-  titlePanel("Comparing Age and Responses to Mental Health"),
+  titlePanel(p("Age Effects")),
   sidebarLayout(
     sidebarPanel(
       x_var <- selectInput(
         inputId = "x_var",
-        label = "Choose an X Variable",
+        label = p("Choose a Variable"),
         choices = c(
           "Mental Health Intereference with Work" = "work_interfere",
           "Number of Employees" = "no_employees",
@@ -91,12 +93,12 @@ age_page <- tabPanel(
 )
 
 comp_page <- tabPanel(
-  titlePanel("Comparing Type of Company and Responses to Mental Health"),
+  titlePanel(p("Company Type Effects")),
   sidebarLayout(
     sidebarPanel(
       x_var <- selectInput(
         inputId = "axis",
-        label = "Choose a Proportion",
+        label = p("Choose a Proportion"),
         choices = c(
           "Easy Taking Medical Leave" = "leave_provided_prop",
           "Provided Mental Health Benefits" = "benefits_provided_prop",
@@ -112,11 +114,46 @@ comp_page <- tabPanel(
   )
 )
 conclusion_page <- tabPanel(
-  titlePanel("Conclusion"),
-  p("test"),
+  titlePanel(p("Conclusion")),
+  tags$h1("Findings"),
+  br(),
+  p("In examining the relationships between age and the mental health
+  of those who work in the tech industry, we were able to determine
+  that younger individuals are more likely to be distracted from work
+  because of their mental wellbeing. While many people expressed that
+  it was fairly easy to take medical leave for their mental health, for
+  those who responded yes, most were below the age of 40. After 
+  comparing age to company size, we found that most employees in tech
+  are around the age of 30, regardless of the size of the company.
+  Consequently, there is a higher risk for younger people who are fairly
+  new in the tech workplace to suffer from mental health conditions."),
+  br(),
+  p("From analysis of responses comparing those in the tech industry with
+  those in other fields, it is clear that those working for tech
+  companies find taking leave easier, most likely due to company
+  resources allowing for flexibility. Those working in tech also found
+  conversations about mental health much more approachable with coworkers.
+  It is interesting to note that more respondents employed at non-tech
+  companies knew of mental health benefits provided by their employers,
+  and also showed a slightly lower proportion of people finding that
+  mental health regularly interfered with their work. This indicates
+  that competitiveness of the tech environment may prove detrimental to
+  the health of its contributors, despite the success of the company."),
+  br(),
+  p("After comparing each of the graphs' insights, it is hard to decipher
+  an obvious conclusion about the tech industry's culture around mental
+  health. While some of our statistics point to the idea that those in
+  the tech industry have less mental health resources than in other
+  industries, many individuals responded that they felt the workplace
+  moderated discussion about their wellbeing. Sadly, through the mere
+  analyzation of data, many individual experiences are omitted which
+  are often significantly more powerful than numbers themselves. In
+  order to dig deeper into the culture around mental health within the
+  tech industry, we must open the conversation with those who work for
+  tech companies and understand their experiences on a personal level."),
 )
-ui <- navbarPage(
-  "Mental Health in the Tech Industry",
+ui <- navbarPage(theme = shinytheme("superhero"),
+  h2("Mental Health in the Tech Industry"),
   intro_page,
   props_page,
   age_page,

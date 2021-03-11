@@ -1,9 +1,10 @@
 library(shiny)
 library(ggplot2)
 library(plotly)
+library(lintr)
 source("table.r")
 
-mental_health <- read.csv("https://raw.githubusercontent.com/info201a-w21/project-victoriathegr8/main/data/mental_health_in_tech/survey.csv?token=ASLIDHBRHUKBMN2U5RGAKW3AJF3YK")
+mental_health <- read.csv("data/mental_health_in_tech/survey.csv")
 mental_health <- mental_health %>%
   select(Age, work_interfere, no_employees, leave)
 table_of_data <- table_of_data %>%
@@ -25,10 +26,8 @@ colnames(summary_table) <- c(
   "Have Family History of Mental Illness",
   "Have Received Mental Illness Treatment",
   "Receive Mental Health Benefits from Work",
-  "Are Comfortable Discussing\nMental Health with
-                              Coworkers",
-  "Are Comfortable Discussing\nMental Health with
-                              Supervisor"
+  "Are Comfortable Discussing\nMental Health with Coworkers",
+  "Are Comfortable Discussing\nMental Health with Supervisor"
 )
 
 colnames(summary_of_data) <- c(
@@ -48,8 +47,8 @@ server <- function(input, output) {
     props_chart <- ggplot(data = summary_table) +
       geom_col(mapping = aes(
         x = `Company Size`,
-        y = summary_table[[input$prop]]
-      )) +
+        y = summary_table[[input$prop]]),
+        fill = "darkslateblue") +
       ylim(0, 1) +
       scale_x_discrete(limits = order) +
       labs(
@@ -64,10 +63,15 @@ server <- function(input, output) {
     mental_health <- mental_health %>%
       filter(Age > 14 & Age < 118) %>%
       filter(leave != "Don't know") %>%
+      drop_na(work_interfere) %>%
       group_by(input$x_var)
+    
+      mental_health$no_employees =
+          factor(mental_health$no_employees, levels = order)
 
     age_plot <- ggplot(data = mental_health) +
-      geom_histogram(mapping = aes(x = Age)) +
+      geom_histogram(mapping = aes(x = Age),
+                     fill = "darkslateblue") +
       facet_wrap(~ mental_health[[input$x_var]]) +
       labs(
         title =
@@ -87,21 +91,22 @@ server <- function(input, output) {
     company_plot <- ggplot(data = summary_of_data) +
       geom_col(mapping = aes(
         x = tech_company,
-        y = summary_of_data[[input$axis]]
-      )) +
+        y = summary_of_data[[input$axis]]),
+        fill = "darkslateblue") +
+      ylim(0,1) +
       labs(
         title =
           if (input$axis == "leave_provided_prop") {
-            title <- "Company Type Effect on Proportion With Ability to Take
+            "Company Type Effect on Proportion With Ability to Take
               Leave Due to Mental Health"
           } else if (input$axis == "comfortable_prop") {
-            title <- "Company Type Effect on Proportion Comfortable Discussing
+            "Company Type Effect on Proportion Comfortable Discussing
               Mental Health With Coworkers"
           } else if (input$axis == "benefits_provided_prop") {
-            title <- "Company Type Effect on Proportion With
+            "Company Type Effect on Proportion With
               Mental Health Benefits Provided"
           } else if (input$axis == "effects_work_prop") {
-            title <- "Company Type Effect on Proportion With Mental Health
+            "Company Type Effect on Proportion With Mental Health
               Inhibiting Work"
           },
         x = "Working For Company in Tech Industry",
