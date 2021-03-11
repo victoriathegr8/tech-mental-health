@@ -28,6 +28,7 @@ intro_page <- tabPanel(
       br(),
       tags$img(src = "working.jpg"),
       br(),
+      br(),
       tags$strong("For more information about Seattle mental health resources,
                   click"),
       tags$a(
@@ -63,7 +64,8 @@ props_page <- tabPanel(
           "Are Comfortable Discussing\nMental Health with Coworkers",
           "Are Comfortable Discussing\nMental Health with Supervisor"),
         label = p("Proportion of Respondents That:"),
-        selected = "Have Family History of Mental Illness"
+        selected = c("Receive Mental Health Benefits from Work",
+                    "Are Comfortable Discussing\nMental Health with Coworkers") 
       )
     ),
     mainPanel(
@@ -101,15 +103,14 @@ comp_page <- tabPanel(
   titlePanel(p("Company Type Effects")),
   sidebarLayout(
     sidebarPanel(
-      x_var <- selectInput(
+      selectInput(
         inputId = "axis",
         label = p("Choose a Proportion"),
         choices = c(
-          "Easy Taking Medical Leave" = "leave_provided_prop",
-          "Provided Mental Health Benefits" = "benefits_provided_prop",
-          "Comfortable Discussing Mental Health With Coworkers"
-          = "comfortable_prop",
-          "Mental Health Effects Work" = "effects_work_prop"
+          "Easily Able to Take Medical Leave\nDue to Mental Health",
+          "Provided Mental Health Benefits",
+          "Comfortable Discussing Mental Health With Coworkers",
+          "Effected at Work by Mental Health"
         )
       )
     ),

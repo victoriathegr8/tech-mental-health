@@ -32,15 +32,10 @@ colnames(summary_table) <- c(
 )
 
 colnames(summary_of_data) <- c(
-  "Company" = "tech_company",
-  "Easy Taking Medical Leave"
-  = "leave_provided_prop",
-  "Provided Mental Health Benefits"
-  = "benefits_provided_prop",
-  "Comfortable Discussing Mental Health With
-                                Coworkers" = "comfortable_prop",
-  "Mental Health Effects Work"
-  = "effects_work_prop"
+  "Company", "Easily Able to Take Medical Leave\nDue to Mental Health",
+  "Provided Mental Health Benefits",
+  "Comfortable Discussing Mental Health With Coworkers",
+  "Effected at Work by Mental Health"
 )
 
 server <- function(input, output) {
@@ -94,25 +89,13 @@ server <- function(input, output) {
   output$comp_plot <- renderPlotly({
     company_plot <- ggplot(data = summary_of_data) +
       geom_col(mapping = aes(
-        x = tech_company,
+        x = `Company`,
         y = summary_of_data[[input$axis]]),
         fill = "darkslateblue") +
       ylim(0,1) +
       labs(
         title =
-          if (input$axis == "leave_provided_prop") {
-            "Company Type Effect on Proportion With Ability to Take
-            Leave Due to Mental Health"
-          } else if (input$axis == "comfortable_prop") {
-            "Company Type Effect on Proportion Comfortable Discussing
-            Mental Health With Coworkers"
-          } else if (input$axis == "benefits_provided_prop") {
-            "Company Type Effect on Proportion With
-            Mental Health Benefits Provided"
-          } else if (input$axis == "effects_work_prop") {
-            "Company Type Effect on Proportion With Mental Health
-            Inhibiting Work"
-          },
+          paste("Company Type Effect on Proportion that are", input$axis),
         x = "Working For Company in Tech Industry",
         y = "Proportion of Respondents"
       )
