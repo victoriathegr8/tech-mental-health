@@ -90,15 +90,18 @@ server <- function(input, output) {
     company_plot <- ggplot(data = summary_of_data) +
       geom_col(mapping = aes(
         x = `Company`,
-        y = summary_of_data[[input$axis]]),
+        y = summary_of_data[[input$axis]],
+        text = paste("Proportion:", summary_of_data[[input$axis]])),
         fill = "darkslateblue") +
       ylim(0,1) +
       labs(
         title =
           paste("Company Type Effect on Proportion that are", input$axis),
         x = "Working For Company in Tech Industry",
-        y = "Proportion of Respondents"
+        y = paste("Proportion of Respondents that are\n", input$axis, 
+                  "\r\n\r\n")
       )
-    ggplotly(company_plot)
+    ggplotly(company_plot,
+             tooltip = c("text"))
   })
 }
