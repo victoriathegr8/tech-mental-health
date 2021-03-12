@@ -5,12 +5,13 @@ library(shinythemes)
 mental_health <- read.csv("data/mental_health_in_tech/survey.csv")
 
 intro_page <- tabPanel(
-  titlePanel(p("Introduction")),
+  titlePanel(h2("Introduction")),
   includeCSS("styles.css"),
   tags$h1("About the Topic"),
   br(),
   sidebarLayout(
     mainPanel(
+      tags$img(src = "mind.jfif"),
       tags$p("The domain we are aiming to explore with this project is
         the intersection between mental health and the tech industry.
         Mental health awareness and advocacy has only risen over the
@@ -25,8 +26,6 @@ intro_page <- tabPanel(
         health in the tech workplace. We found this data set to have a
         large enough reach and enough respondents to be able to draw
         conclusions from it."),
-      br(),
-      tags$img(src = "working.jpg"),
       br(),
       br(),
       tags$strong("For more information about Seattle mental health resources,
@@ -52,7 +51,7 @@ intro_page <- tabPanel(
 )
 
 props_page <- tabPanel(
-  titlePanel(p("Company Size Effects")),
+  titlePanel(h2("Company Size Effects")),
   sidebarLayout(
     sidebarPanel(
       checkboxGroupInput(
@@ -75,7 +74,7 @@ props_page <- tabPanel(
 )
 
 age_page <- tabPanel(
-  titlePanel(p("Age Effects")),
+  titlePanel(h2("Age Effects")),
   sidebarLayout(
     sidebarPanel(
       x_var <- selectInput(
@@ -100,7 +99,7 @@ age_page <- tabPanel(
 )
 
 comp_page <- tabPanel(
-  titlePanel(p("Company Type Effects")),
+  titlePanel(h2("Company Type Effects")),
   sidebarLayout(
     sidebarPanel(
       selectInput(
@@ -120,9 +119,10 @@ comp_page <- tabPanel(
   )
 )
 conclusion_page <- tabPanel(
-  titlePanel(p("Conclusion")),
+  titlePanel(h2("Conclusion")),
   tags$h1("Findings"),
   br(),
+  tags$div (class = "content", tags$img(src = "team.png"), 
   p("After evaluating the impact of the size of a tech company that one 
     works for on mental health, we can see a few trends. A trend that was 
     expected was a positive relationship between company size and 
@@ -138,8 +138,9 @@ conclusion_page <- tabPanel(
     before. This shows that despite companies offering mental health 
     benefits, and thus acknowledging that mental health struggles are 
     normal and worthy of being treated, workplace culture doesn't 
-    necessarily follow suit with that acknowledgement."),
+    necessarily follow suit with that acknowledgement.")),
   br(),
+  tags$div (class = "content", tags$img(src = "age.png"), 
   p("In examining the relationships between age and the mental health
   of those who work in the tech industry, we were able to determine
   that younger individuals are more likely to be distracted from work
@@ -149,8 +150,10 @@ conclusion_page <- tabPanel(
   comparing age to company size, we found that most employees in tech
   are around the age of 30, regardless of the size of the company.
   Consequently, there is a higher risk for younger people who are fairly
-  new in the tech workplace to suffer from mental health conditions."),
+  new in the tech workplace to suffer from mental health conditions.")),
   br(),
+  br(),
+  tags$div (class = "content", tags$img(src = "tech.png"), 
   p("From analysis of responses comparing those in the tech industry with
   those in other fields, it is clear that those working for tech
   companies find taking leave easier, most likely due to company
@@ -161,8 +164,9 @@ conclusion_page <- tabPanel(
   and also showed a slightly lower proportion of people finding that
   mental health regularly interfered with their work. This indicates
   that competitiveness of the tech environment may prove detrimental to
-  the health of its contributors, despite the success of the company."),
+  the health of its contributors, despite the success of the company.")),
   br(),
+  tags$div (class = "content", tags$img(src = "data.png"),
   p("After comparing each of the graphs' insights, it is hard to decipher
   an obvious conclusion about the tech industry's culture around mental
   health. While some of our statistics point to the idea that those in
@@ -173,7 +177,7 @@ conclusion_page <- tabPanel(
   are often significantly more powerful than numbers themselves. In
   order to dig deeper into the culture around mental health within the
   tech industry, we must open the conversation with those who work for
-  tech companies and understand their experiences on a personal level."),
+  tech companies and understand their experiences on a personal level.")),
 )
 ui <- navbarPage(theme = shinytheme("superhero"),
   h2("Mental Health in the Tech Industry"),

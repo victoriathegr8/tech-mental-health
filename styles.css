@@ -1,5 +1,5 @@
 h1 {
-      background-color: #c4c4c4;
+      background-color: #B4B4B4;
     top: 50%; 
     text-transform: uppercase;
     font-family: verdana;
@@ -25,13 +25,18 @@ h2 {
   font-size: 20px
 }
 p {
+padding-right: 50px;
+padding-left: 50px;
   font-size: 15px;
+overflow:hidden
 }
 li {
   font-size: 20px
 }
 img {
-  max-width: 600px
+padding-left: 50px;
+float: left;
+  max-width: 200px
 }
 li {
     font-size: 20px
