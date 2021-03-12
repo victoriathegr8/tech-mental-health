@@ -63,7 +63,7 @@ props_page <- tabPanel(
           "Are Comfortable Discussing\nMental Health with Coworkers",
           "Are Comfortable Discussing\nMental Health with Supervisor"
         ),
-        label = p("Proportion of Respondents That:"),
+        label = h3("Proportion of Respondents That:"),
         selected = c(
           "Receive Mental Health Benefits from Work",
           "Are Comfortable Discussing\nMental Health with Coworkers"
@@ -82,7 +82,7 @@ age_page <- tabPanel(
     sidebarPanel(
       x_var <- selectInput(
         inputId = "x_var",
-        label = p("Choose a Variable"),
+        label = h3("Choose a Variable"),
         choices = c(
           "Mental Health Intereference with Work" = "work_interfere",
           "Number of Employees" = "no_employees",
@@ -91,7 +91,7 @@ age_page <- tabPanel(
       ),
       sliderInput(
         inputId = "age_range",
-        label = p("Age Range"),
+        label = h3("Age Range"),
         min = 14, max = 118, value = c(14, 118)
       )
     ),
@@ -107,7 +107,7 @@ comp_page <- tabPanel(
     sidebarPanel(
       selectInput(
         inputId = "axis",
-        label = p("Choose a Proportion"),
+        label = h3("Choose a Proportion"),
         choices = c(
           "Easily Able to Take Medical Leave\nDue to Mental Health",
           "Provided Mental Health Benefits",
