@@ -61,10 +61,13 @@ props_page <- tabPanel(
           "Have Received Mental Illness Treatment",
           "Receive Mental Health Benefits from Work",
           "Are Comfortable Discussing\nMental Health with Coworkers",
-          "Are Comfortable Discussing\nMental Health with Supervisor"),
+          "Are Comfortable Discussing\nMental Health with Supervisor"
+        ),
         label = p("Proportion of Respondents That:"),
-        selected = c("Receive Mental Health Benefits from Work",
-                    "Are Comfortable Discussing\nMental Health with Coworkers") 
+        selected = c(
+          "Receive Mental Health Benefits from Work",
+          "Are Comfortable Discussing\nMental Health with Coworkers"
+        )
       )
     ),
     mainPanel(
@@ -122,39 +125,44 @@ conclusion_page <- tabPanel(
   titlePanel(h2("Conclusion")),
   tags$h1("Findings"),
   br(),
-  tags$div (class = "content", tags$img(src = "team.png"), 
-  p("After evaluating the impact of the size of a tech company that one 
-    works for on mental health, we can see a few trends. A trend that was 
-    expected was a positive relationship between company size and 
-    the probability that the company would offer mental health benefits. 
-    However, this directly contrasts with many of the other trends 
-    demonstrated in regards to company size. Respondents working at 
-    larger companies were less comfortable discussing mental health with 
-    both their coworkers and supervisors. This was shown in the 19.2% 
-    difference in the proportion of respondents working at 1000+ 
-    employee companies that were comfortable discussing their mental 
-    with their coworkers and those working at 1-5 employee companies. 
-    They were also less likely to have received mental health treatment 
-    before. This shows that despite companies offering mental health 
-    benefits, and thus acknowledging that mental health struggles are 
-    normal and worthy of being treated, workplace culture doesn't 
-    necessarily follow suit with that acknowledgement.")),
+  tags$div(
+    class = "content", tags$img(src = "team.png"),
+    p("After evaluating the impact of the size of a tech company that one
+    works for on mental health, we can see a few trends. A trend that was
+    expected was a positive relationship between company size and
+    the probability that the company would offer mental health benefits.
+    However, this directly contrasts with many of the other trends
+    demonstrated in regards to company size. Respondents working at
+    larger companies were less comfortable discussing mental health with
+    both their coworkers and supervisors. This was shown in the 19.2%
+    difference in the proportion of respondents working at 1000+
+    employee companies that were comfortable discussing their mental
+    with their coworkers and those working at 1-5 employee companies.
+    They were also less likely to have received mental health treatment
+    before. This shows that despite companies offering mental health
+    benefits, and thus acknowledging that mental health struggles are
+    normal and worthy of being treated, workplace culture doesn't
+    necessarily follow suit with that acknowledgement.")
+  ),
   br(),
-  tags$div (class = "content", tags$img(src = "age.png"), 
-  p("In examining the relationships between age and the mental health
+  tags$div(
+    class = "content", tags$img(src = "age.png"),
+    p("In examining the relationships between age and the mental health
   of those who work in the tech industry, we were able to determine
   that younger individuals are more likely to be distracted from work
   because of their mental wellbeing. While many people expressed that
   it was fairly easy to take medical leave for their mental health, for
-  those who responded yes, most were below the age of 40. After 
+  those who responded yes, most were below the age of 40. After
   comparing age to company size, we found that most employees in tech
   are around the age of 30, regardless of the size of the company.
   Consequently, there is a higher risk for younger people who are fairly
-  new in the tech workplace to suffer from mental health conditions.")),
+  new in the tech workplace to suffer from mental health conditions.")
+  ),
   br(),
   br(),
-  tags$div (class = "content", tags$img(src = "tech.png"), 
-  p("From analysis of responses comparing those in the tech industry with
+  tags$div(
+    class = "content", tags$img(src = "tech.png"),
+    p("From analysis of responses comparing those in the tech industry with
   those in other fields, it is clear that those working for tech
   companies find taking leave easier, most likely due to company
   resources allowing for flexibility. Those working in tech also found
@@ -164,10 +172,12 @@ conclusion_page <- tabPanel(
   and also showed a slightly lower proportion of people finding that
   mental health regularly interfered with their work. This indicates
   that competitiveness of the tech environment may prove detrimental to
-  the health of its contributors, despite the success of the company.")),
+  the health of its contributors, despite the success of the company.")
+  ),
   br(),
-  tags$div (class = "content", tags$img(src = "data.png"),
-  p("After comparing each of the graphs' insights, it is hard to decipher
+  tags$div(
+    class = "content", tags$img(src = "data.png"),
+    p("After comparing each of the graphs' insights, it is hard to decipher
   an obvious conclusion about the tech industry's culture around mental
   health. While some of our statistics point to the idea that those in
   the tech industry have less mental health resources than in other
@@ -177,9 +187,11 @@ conclusion_page <- tabPanel(
   are often significantly more powerful than numbers themselves. In
   order to dig deeper into the culture around mental health within the
   tech industry, we must open the conversation with those who work for
-  tech companies and understand their experiences on a personal level.")),
+  tech companies and understand their experiences on a personal level.")
+  ),
 )
-ui <- navbarPage(theme = shinytheme("superhero"),
+ui <- navbarPage(
+  theme = shinytheme("superhero"),
   h2("Mental Health in the Tech Industry"),
   intro_page,
   props_page,

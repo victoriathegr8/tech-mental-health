@@ -40,11 +40,13 @@ colnames(summary_of_data) <- c(
 
 server <- function(input, output) {
   output$props_plot <- renderPlotly({
-    summary_table2 <- melt(summary_table, id.vars = 'Company Size') %>%
+    summary_table2 <- melt(summary_table, id.vars = "Company Size") %>%
       filter(variable %in% input$prop)
-    props_chart <- ggplot(summary_table2, aes(x = `Company Size`,
-                                             y = value,
-                                             fill = variable)) +
+    props_chart <- ggplot(summary_table2, aes(
+      x = `Company Size`,
+      y = value,
+      fill = variable
+    )) +
       geom_bar(position = "dodge", stat = "identity") +
       ylim(0, 1) +
       scale_x_discrete(limits = order) +
@@ -63,13 +65,15 @@ server <- function(input, output) {
       filter(leave != "Don't know") %>%
       drop_na(work_interfere) %>%
       group_by(input$x_var)
-    
-      mental_health$no_employees =
-          factor(mental_health$no_employees, levels = order)
+
+    mental_health$no_employees <-
+      factor(mental_health$no_employees, levels = order)
 
     age_plot <- ggplot(data = mental_health) +
-      geom_histogram(mapping = aes(x = Age),
-                     fill = "darkslateblue") +
+      geom_histogram(
+        mapping = aes(x = Age),
+        fill = "darkslateblue"
+      ) +
       facet_wrap(~ mental_health[[input$x_var]]) +
       labs(
         title =
@@ -88,20 +92,26 @@ server <- function(input, output) {
 
   output$comp_plot <- renderPlotly({
     company_plot <- ggplot(data = summary_of_data) +
-      geom_col(mapping = aes(
-        x = `Company`,
-        y = summary_of_data[[input$axis]],
-        text = paste("Proportion:", summary_of_data[[input$axis]])),
-        fill = "darkslateblue") +
-      ylim(0,1) +
+      geom_col(
+        mapping = aes(
+          x = `Company`,
+          y = summary_of_data[[input$axis]],
+          text = paste("Proportion:", summary_of_data[[input$axis]])
+        ),
+        fill = "darkslateblue"
+      ) +
+      ylim(0, 1) +
       labs(
         title =
           paste("Company Type Effect on Proportion that are", input$axis),
         x = "Working For Company in Tech Industry",
-        y = paste("Proportion of Respondents that are\n", input$axis, 
-                  "\r\n\r\n")
+        y = paste(
+          "Proportion of Respondents that are\n", input$axis,
+          "\r\n\r\n"
+        )
       )
     ggplotly(company_plot,
-             tooltip = c("text"))
+      tooltip = c("text")
+    )
   })
 }
